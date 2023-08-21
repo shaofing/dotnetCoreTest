@@ -28,6 +28,7 @@ namespace CoreTest
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            // 增加MVC
             services.AddMvc();
         }
 
@@ -36,11 +37,11 @@ namespace CoreTest
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            //开发模式
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink(); //不使用BrowserLink
             }
             else
             {
